@@ -10,4 +10,4 @@
 
 <router-outlet></router-outlet>
 
-<full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins"></full-calendar>
+<full-calendar (eventClick)="dateClick($event)" (dateClick)="dateClick($event)" defaultView="dayGridMonth" [plugins]="calendarPlugins" [events]="calendarEvents"></full-calendar>
