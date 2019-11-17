@@ -5,6 +5,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 
 import {EventInput} from "@fullcalendar/core";
 
+//Dialog
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,9 +20,7 @@ export class AppComponent implements OnInit {
   calendarEvents: EventInput[];
   calendarPlugins = [dayGridPlugin, interactionPlugin]; // important!
 
-  dateClick(event) {
-    console.log("event", event);
-  }
+  constructor(private dialog:MatDialog){}
 
   ngOnInit(): void {
 
@@ -32,6 +34,19 @@ export class AppComponent implements OnInit {
       }
     ];
 
+  }
+
+  dateClick(event) {
+    console.log("event", event);
+    this.dialog.open(DialogComponent,{data:"texto de prueba"})
+                .afterClosed()
+                  .subscribe((confirmado)=>{
+                    if(confirmado){
+                      console.log("si");
+                    }else{
+                      console.log("no");
+                    }
+                  })
   }
 
 }
