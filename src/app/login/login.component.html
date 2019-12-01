@@ -1,0 +1,14 @@
+<div class="login">
+    <h1>LOGIN</h1>
+
+<form [formGroup]="loginForm">
+
+    <p>USUARIO : </p><input type="text" formControlName="name" placeholder="SU USUARIO">
+
+    <p>PASSWORD : </p> <input type="text" formControlName="password" placeholder="SU CONTRASEÑA">
+</form>
+
+<button mat-button  class="btn-send"  (click)="ClickSumit()">
+   ACCESO
+</button>
+</div>

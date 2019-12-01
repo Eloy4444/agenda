@@ -13,24 +13,33 @@ import { SchedulerModule } from 'angular-calendar-scheduler';
 
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogComponent } from './components/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+
+import {MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material'; 
+
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FullCalendarModule,
-    MatDialogModule,
     CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents:[DialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
