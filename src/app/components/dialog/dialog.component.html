@@ -1,4 +1,16 @@
 <p>dialog works!</p>
 
+<form action="" [formGroup]="scheduleForm">
+    <mat-form-field>
+        <mat-label>Cars</mat-label>
+        <mat-select placeholder="Operaciones"  formControlName="hoursControl">
+            <mat-option *ngFor="let op of freeSchedule" [value]="op" [disabled]="disabler(op)">
+                {{op}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+
+
 <button (click)="confirmar()">Si</button>
 <button (click)="cerrarDialogo()" > No</button>
